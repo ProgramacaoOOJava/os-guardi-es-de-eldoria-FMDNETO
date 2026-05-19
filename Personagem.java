@@ -1,5 +1,5 @@
 // Representa um personagem do sistema com seus principais atributos.
-public abstract class Personagem {
+public abstract class Personagem implements Comparable<Personagem> {
     String nome;
     String classe;
     int nivel;
@@ -27,5 +27,11 @@ public abstract class Personagem {
 
     // Cria o método abstrato para ser implementado nas subclasses
     public abstract void usarHabilidadeEspecial();
+
+    // Implementa o método compareTo para comparar personagens pelo nível
+    @Override
+    public int compareTo(Personagem outro) {
+        return Integer.compare(this.nivel, outro.nivel);
+    }
 }
 
